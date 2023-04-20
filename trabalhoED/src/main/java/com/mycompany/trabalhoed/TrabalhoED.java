@@ -1,14 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 package com.mycompany.trabalhoed;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author vitor
- */
 public class TrabalhoED {
 
     public static void main(String[] args) {
@@ -32,65 +25,84 @@ public class TrabalhoED {
         n = Integer.parseInt(input);
 
         switch (n) {
-            
-            case 1 :
-                
+
+            case 1:
+
                 System.out.println("Método escolhido Ordenação bolha!");
                 System.out.println("Vetor original: ");
                 ImprimeVetor(vetor);
+
+                long inicio = System.nanoTime();
                 System.out.println("----------------------------");
                 System.out.println("Vetor ordenado por bolha: ");
                 OrdenacaoBolha(vetor);
+                long fim = System.nanoTime();
+                long tempoExecucao = fim - inicio;
+                System.out.println("O tempo de execução foi de: " + tempoExecucao);
+
+                long inicioSelecao = System.nanoTime();
                 System.out.println("----------------------------");
                 System.out.println("Vetor ordenado por Seleção: ");
                 OrdenacaoSelecao(vetor);
+                long fimSelecao = System.nanoTime();
+                long tempoExecucaoSelecao = fimSelecao - inicioSelecao;
+                System.out.println("O tempo de execução foi de: " + tempoExecucaoSelecao);
+
+                long inicioInsercao = System.nanoTime();
                 System.out.println("----------------------------");
                 System.out.println("Vetor ordenado por Inserção: ");
                 OrdenacaoInsercao(vetor);
+                long fimInsercao = System.nanoTime();
+                long tempoExecucaoInsercao = fimInsercao - inicioInsercao;
+                System.out.println("O tempo de execução foi de: " + tempoExecucaoInsercao);
+
                 break;
-                
-            case 2 : 
+
+            case 2:
                 System.out.println("Método escolhido Ordenação Seleção!");
                 System.out.println("Vetor original: ");
                 ImprimeVetor(vetor);
                 System.out.println("Vetor ordenado por Seleção: ");
                 OrdenacaoSelecao(vetor);
                 break;
-                
-            case 3 :
+
+            case 3:
                 System.out.println("Método escolhido Ordenação Inserção!");
                 System.out.println("Vetor original: ");
                 ImprimeVetor(vetor);
                 System.out.println("Vetor ordenado por Inserção: ");
                 OrdenacaoInsercao(vetor);
                 break;
-                
-            default : 
+
+            default:
                 break;
-                
+
         }
 
-        
     }
-    public static void ImprimeVetor(int[] vetor){
+
+    public static void ImprimeVetor(int[] vetor) {
         for (int i = 0; i < vetor.length; i++) {
             System.out.println("vetor[" + i + "] = " + vetor[i]);
         }
     }
-    
-    
+
     public static void OrdenacaoBolha(int[] vetor) {
-        for (int i = 0; i < vetor.length - 1; i++) {
-            for (int j = 0; j < vetor.length - 1 - i; j++) {
-                if (vetor[j] > vetor[j + 1]) {
-                    int aux = vetor[j];
-                    vetor[j] = vetor[j + 1];
-                    vetor[j + 1] = aux;
+        boolean troca = true;
+        while (troca) {
+            troca = false;
+            for (int i = 0; i < vetor.length - 1; i++) {
+                if (vetor[i] > vetor[i + 1]) {
+                    int aux = vetor[i];
+                    vetor[i] = vetor[i + 1];
+                    vetor[i + 1] = aux;
+                    troca = true;
                 }
             }
+
+            ImprimeVetor(vetor);
+
         }
-        ImprimeVetor(vetor);
-        ImprimirTempoExecucao(vetor);
     }
 
     public static void OrdenacaoSelecao(int[] vetor) {
@@ -111,7 +123,7 @@ public class TrabalhoED {
 
         }
         ImprimeVetor(vetor);
-        ImprimirTempoExecucao(vetor);
+
     }
 
     public static void OrdenacaoInsercao(int[] vetor) {
@@ -126,15 +138,6 @@ public class TrabalhoED {
             vetor[j + 1] = atual;
         }
         ImprimeVetor(vetor);
-        ImprimirTempoExecucao(vetor);
-    }
-
-    public static void ImprimirTempoExecucao(int[] vetor) {
-        long inicio = System.currentTimeMillis();
-        long fim = System.currentTimeMillis();
-        long tempoExecucao = fim - inicio;
-
-        System.out.println("O tempo de execução foi: " + tempoExecucao);
 
     }
 
