@@ -109,7 +109,7 @@ public class TrabalhoED {
             long tempoExecucaoInsercao = fimInsercao - inicioInsercao;
             System.out.println("O tempo de execução foi de: " + tempoExecucaoInsercao);
         } else {
-
+            System.out.println("Sessão finalizada");
         }
 
     }
