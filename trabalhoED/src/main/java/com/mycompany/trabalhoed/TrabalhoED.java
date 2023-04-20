@@ -36,48 +36,62 @@ public class TrabalhoED {
                 System.out.println("----------------------------");
                 System.out.println("Vetor ordenado por bolha: ");
                 OrdenacaoBolha(vetor);
+                ImprimeVetor(vetor);
                 long fim = System.nanoTime();
                 long tempoExecucao = fim - inicio;
                 System.out.println("O tempo de execução foi de: " + tempoExecucao);
 
+                break;
+
+            case 2:
                 long inicioSelecao = System.nanoTime();
                 System.out.println("----------------------------");
                 System.out.println("Vetor ordenado por Seleção: ");
                 OrdenacaoSelecao(vetor);
+                ImprimeVetor(vetor);
                 long fimSelecao = System.nanoTime();
                 long tempoExecucaoSelecao = fimSelecao - inicioSelecao;
                 System.out.println("O tempo de execução foi de: " + tempoExecucaoSelecao);
+                break;
 
+            case 3:
                 long inicioInsercao = System.nanoTime();
                 System.out.println("----------------------------");
                 System.out.println("Vetor ordenado por Inserção: ");
                 OrdenacaoInsercao(vetor);
+                ImprimeVetor(vetor);
                 long fimInsercao = System.nanoTime();
                 long tempoExecucaoInsercao = fimInsercao - inicioInsercao;
                 System.out.println("O tempo de execução foi de: " + tempoExecucaoInsercao);
-
-                break;
-
-            case 2:
-                System.out.println("Método escolhido Ordenação Seleção!");
-                System.out.println("Vetor original: ");
-                ImprimeVetor(vetor);
-                System.out.println("Vetor ordenado por Seleção: ");
-                OrdenacaoSelecao(vetor);
-                break;
-
-            case 3:
-                System.out.println("Método escolhido Ordenação Inserção!");
-                System.out.println("Vetor original: ");
-                ImprimeVetor(vetor);
-                System.out.println("Vetor ordenado por Inserção: ");
-                OrdenacaoInsercao(vetor);
                 break;
 
             default:
                 break;
 
         }
+        long inicio = System.nanoTime();
+        System.out.println("----------------------------");
+        System.out.println("Vetor ordenado por bolha: ");
+        OrdenacaoBolha(vetor);
+        long fim = System.nanoTime();
+        long tempoExecucao = fim - inicio;
+        System.out.println("O tempo de execução foi de: " + tempoExecucao);
+
+        long inicioSelecao = System.nanoTime();
+        System.out.println("----------------------------");
+        System.out.println("Vetor ordenado por Seleção: ");
+        OrdenacaoSelecao(vetor);
+        long fimSelecao = System.nanoTime();
+        long tempoExecucaoSelecao = fimSelecao - inicioSelecao;
+        System.out.println("O tempo de execução foi de: " + tempoExecucaoSelecao);
+
+        long inicioInsercao = System.nanoTime();
+        System.out.println("----------------------------");
+        System.out.println("Vetor ordenado por Inserção: ");
+        OrdenacaoInsercao(vetor);
+        long fimInsercao = System.nanoTime();
+        long tempoExecucaoInsercao = fimInsercao - inicioInsercao;
+        System.out.println("O tempo de execução foi de: " + tempoExecucaoInsercao);
 
     }
 
@@ -100,8 +114,6 @@ public class TrabalhoED {
                 }
             }
 
-            ImprimeVetor(vetor);
-
         }
     }
 
@@ -122,7 +134,6 @@ public class TrabalhoED {
             }
 
         }
-        ImprimeVetor(vetor);
 
     }
 
@@ -137,7 +148,6 @@ public class TrabalhoED {
             }
             vetor[j + 1] = atual;
         }
-        ImprimeVetor(vetor);
 
     }
 
