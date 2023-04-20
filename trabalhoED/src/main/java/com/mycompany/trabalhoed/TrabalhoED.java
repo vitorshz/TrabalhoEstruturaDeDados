@@ -29,6 +29,7 @@ public class TrabalhoED {
             case 1:
 
                 System.out.println("Método escolhido Ordenação bolha!");
+                System.out.println("----------------------------");
                 System.out.println("Vetor original: ");
                 ImprimeVetor(vetor);
 
@@ -44,6 +45,10 @@ public class TrabalhoED {
                 break;
 
             case 2:
+                System.out.println("Método escolhido Ordenação Seleção!");
+                System.out.println("----------------------------");
+                System.out.println("Vetor original: ");
+                ImprimeVetor(vetor);
                 long inicioSelecao = System.nanoTime();
                 System.out.println("----------------------------");
                 System.out.println("Vetor ordenado por Seleção: ");
@@ -55,6 +60,10 @@ public class TrabalhoED {
                 break;
 
             case 3:
+                System.out.println("Método escolhido Ordenação Inserção!");
+                System.out.println("----------------------------");
+                System.out.println("Vetor original: ");
+                ImprimeVetor(vetor);
                 long inicioInsercao = System.nanoTime();
                 System.out.println("----------------------------");
                 System.out.println("Vetor ordenado por Inserção: ");
@@ -69,29 +78,39 @@ public class TrabalhoED {
                 break;
 
         }
-        long inicio = System.nanoTime();
-        System.out.println("----------------------------");
-        System.out.println("Vetor ordenado por bolha: ");
-        OrdenacaoBolha(vetor);
-        long fim = System.nanoTime();
-        long tempoExecucao = fim - inicio;
-        System.out.println("O tempo de execução foi de: " + tempoExecucao);
 
-        long inicioSelecao = System.nanoTime();
-        System.out.println("----------------------------");
-        System.out.println("Vetor ordenado por Seleção: ");
-        OrdenacaoSelecao(vetor);
-        long fimSelecao = System.nanoTime();
-        long tempoExecucaoSelecao = fimSelecao - inicioSelecao;
-        System.out.println("O tempo de execução foi de: " + tempoExecucaoSelecao);
+        input = JOptionPane.showInputDialog("Deseja comparar com os outros métodos? S OU N");
+        if (input.toUpperCase().equals("S")) {
 
-        long inicioInsercao = System.nanoTime();
-        System.out.println("----------------------------");
-        System.out.println("Vetor ordenado por Inserção: ");
-        OrdenacaoInsercao(vetor);
-        long fimInsercao = System.nanoTime();
-        long tempoExecucaoInsercao = fimInsercao - inicioInsercao;
-        System.out.println("O tempo de execução foi de: " + tempoExecucaoInsercao);
+            System.out.println("Vetor original: ");
+            ImprimeVetor(vetor);
+
+            long inicio = System.nanoTime();
+            System.out.println("----------------------------");
+            System.out.println("Vetor ordenado por bolha: ");
+            OrdenacaoBolha(vetor);
+            long fim = System.nanoTime();
+            long tempoExecucao = fim - inicio;
+            System.out.println("O tempo de execução foi de: " + tempoExecucao);
+
+            long inicioSelecao = System.nanoTime();
+            System.out.println("----------------------------");
+            System.out.println("Vetor ordenado por Seleção: ");
+            OrdenacaoSelecao(vetor);
+            long fimSelecao = System.nanoTime();
+            long tempoExecucaoSelecao = fimSelecao - inicioSelecao;
+            System.out.println("O tempo de execução foi de: " + tempoExecucaoSelecao);
+
+            long inicioInsercao = System.nanoTime();
+            System.out.println("----------------------------");
+            System.out.println("Vetor ordenado por Inserção: ");
+            OrdenacaoInsercao(vetor);
+            long fimInsercao = System.nanoTime();
+            long tempoExecucaoInsercao = fimInsercao - inicioInsercao;
+            System.out.println("O tempo de execução foi de: " + tempoExecucaoInsercao);
+        } else {
+
+        }
 
     }
 
